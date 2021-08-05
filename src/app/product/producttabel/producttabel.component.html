@@ -1,0 +1,31 @@
+<table>
+  <col width="80%" />
+  <col width="20%" />
+  <thead>
+    <tr>
+      <th style="text-align: left;">
+        Name
+      </th>
+      <th style="text-align: left;">
+        Price
+      </th>
+    </tr>
+  </thead>
+  <tbody >
+    <ng-container *ngFor="let cat of productCategories;">
+      <tr >
+        <th colspan="2">
+          {{ cat.name }}
+        </th>
+      </tr>
+      <tr *ngFor="let prod of cat.item;" >
+        <td [ngClass] = "{'high' : !prod.stocked}">
+          {{prod.name}}
+        </td>
+        <td>
+          {{prod.price}}
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
